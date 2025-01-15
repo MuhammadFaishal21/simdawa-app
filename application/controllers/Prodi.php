@@ -59,4 +59,14 @@ class Prodi extends CI_Controller
             redirect('prodi');
         }
     }
+public function cetak()
+{
+    $data['prodi'] = $this->ProdiModel->get_all();
+    if (empty($data['prodi'])) {
+        show_error('Data prodi tidak tersedia untuk dicetak.', 404);
+    }
+    $this->load->view('prodi/prodi_print', $data);
 }
+}
+
+
